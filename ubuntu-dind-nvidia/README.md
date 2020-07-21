@@ -5,6 +5,7 @@ This image has following:
 * docker-ce : 5:19.03.12~3-0~ubuntu-bionic
 * nvidia-container-runtime: 3.2.0-1
 * nvidia-docker2: 2=2.3.0-1
+* docker-compose: 1.26.0
 
 It is available at https://hub.docker.com/r/vraiyani/ubuntu-dind-nv
 
