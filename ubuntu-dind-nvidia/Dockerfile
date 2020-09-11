@@ -1,13 +1,17 @@
 FROM ubuntu:18.04
 
-RUN apt-get update -qq && apt-get install -qqy \
+RUN apt-get update -qq && apt-get install --no-install-recommends -qqy \
     apt-transport-https \
     ca-certificates \
     curl \
-    lxc \
-    iptables \
     gnupg-agent \
-    software-properties-common
+    iptables \
+    iproute2 \
+    lxc \
+    net-tools \
+    software-properties-common \
+    sshpass \
+    vim
     
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -15,8 +19,6 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 # install nvidia docker and nvidia-container-runtime to allow dind to be able to pass gpus to child containers
 RUN curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
 RUN curl -s -L https://nvidia.github.io/nvidia-docker/$(. /etc/os-release;echo $ID$VERSION_ID)/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
-RUN curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | apt-key add -
-RUN curl -s -L https://nvidia.github.io/nvidia-container-runtime/$(. /etc/os-release;echo $ID$VERSION_ID)/nvidia-container-runtime.list | tee /etc/apt/sources.list.d/nvidia-container-runtime.list
 RUN apt-get update && apt-get install -y \
     nvidia-container-runtime=3.2.0-1 \
     nvidia-docker2=2.3.0-1 \
