@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     docker-ce-cli=5:19.03.12~3-0~ubuntu-bionic \
     containerd.io
 
-RUN curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 ENV NVIDIA_DRIVER_CAPABILITIES=all
