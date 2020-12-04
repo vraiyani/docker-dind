@@ -31,4 +31,3 @@ RUN chmod +x /usr/local/bin/docker-compose
 
 ENV NVIDIA_DRIVER_CAPABILITIES=all
 
-VOLUME /var/lib/docker
