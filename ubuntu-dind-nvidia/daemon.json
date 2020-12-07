@@ -4,6 +4,7 @@
       {"base":"10.201.0.0/16","size":24},
       {"base":"10.202.0.0/16","size":24}
     ],
+    "dns": ["172.16.136.26","172.20.232.252"],
     "runtimes": {
         "nvidia": {
             "path": "nvidia-container-runtime",
